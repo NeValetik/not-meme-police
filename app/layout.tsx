@@ -19,7 +19,7 @@ export default function RootLayout({
     <html
       lang="en" className={cn("font-mono", jetbrainsMono.variable)}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-screen flex flex-col">{children}</body>
     </html>
   );
 }

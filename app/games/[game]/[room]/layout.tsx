@@ -24,7 +24,7 @@ const GameLayout:FC<{children: React.ReactNode}> = ({ children }) => {
     setConnectOpen(false);
   }
   return (
-    <div>
+    <div className="flex flex-col flex-1 min-h-0">
       {children}
       {connetOpen && 
         <ConnectDialog 
