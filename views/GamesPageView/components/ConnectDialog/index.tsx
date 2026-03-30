@@ -20,6 +20,7 @@ interface ConnectDialogValues {
 
 const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpenChange, handleSubmit }) => {
   const [submitError, setSubmitError] = useState<string | null>(null);
+
   const form = useForm<ConnectDialogValues>({
     defaultValues: {
       roomId: roomIdProp ?? "",
