@@ -9,15 +9,17 @@ interface RoomPageProps {
   };
 }
 
-const RoomPage:FC<RoomPageProps> = (props) => {
-  const { game, ...rest } = props.params;
+const RoomPage:FC<RoomPageProps> = async (props) => {
+  const { game, ...restParams } = await props.params;
   const ClientGameView = getClientGameRoom(game);
   if (!ClientGameView) {
     return <div>Game not found</div>;
   }
   return (
     <div>
-      {<ClientGameView {...rest} />}
+      <ClientGameView {...restParams} />
     </div>
   );
 }
+
+export default RoomPage;
