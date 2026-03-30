@@ -20,13 +20,15 @@ const RoomPage = async (props: RoomPageProps) => {
   }
 
   return (
-    <div>
-      <Button asChild variant="outline">
-        <Link href={`/games`}>
-          <ArrowLeftIcon size={16} />
-          <span>Back</span>
-        </Link>
-      </Button>
+    <div className="flex flex-col gap-4">
+      <div>
+        <Button asChild variant="outline">
+          <Link href={`/games`}>
+            <ArrowLeftIcon size={16} />
+            <span>Back</span>
+          </Link>
+        </Button>
+      </div>
       <GameView room={room} />
     </div>
   );

@@ -3,10 +3,12 @@ import { FC } from "react";
 
 const CoreLayout:FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div>
+    <>
       <Toaster />
-      {children}
-    </div>
+      <div className="flex flex-col md:p-8 p-4 w-full">
+        {children}
+      </div>
+    </>
   )
 }
 
