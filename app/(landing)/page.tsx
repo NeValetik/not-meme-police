@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { FC } from "react";
+import { Button } from "@/components/ui/button";
 
 const HomePage:FC<{}> = () => {
   return (
     <div className="">
-      <Link href="/games/alias/room1">Alias</Link>
+      <Button asChild variant="outline">
+        <Link href="/games">Games</Link>
+      </Button>
     </div>
   );
 }

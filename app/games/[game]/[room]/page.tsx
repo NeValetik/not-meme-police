@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { ClientGame } from "@/views/GameViews/types";
 import { getClientGameRoom } from "@/views/GameViews/utils";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface RoomPageProps {
   params: {
@@ -17,6 +18,9 @@ const RoomPage:FC<RoomPageProps> = async (props) => {
   }
   return (
     <div>
+      <Button asChild variant="outline">
+        <Link href={`/games`}>Alias</Link>
+      </Button>
       <ClientGameView {...restParams} />
     </div>
   );
