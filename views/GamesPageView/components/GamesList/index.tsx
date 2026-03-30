@@ -12,8 +12,6 @@ const GamesList:FC = () => {
     }
   });
 
-  console.log(games);
-
   return (
     <div>
       {games.map(({ game, label, icon }) => (
