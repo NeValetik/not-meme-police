@@ -7,6 +7,8 @@ import {
   RoundPhase,
   roundMachineReducer,
 } from "./utils/machine";
+import WordList from "./components/WordList";
+import { WordListProvider } from "./contexts/useWordListContext";
 
 const GameSection: FC = () => {
   const [state, dispatch] = useReducer(
@@ -38,16 +40,18 @@ const GameSection: FC = () => {
   }, [state.phase, state.secondsLeft]);
 
   return (
-    <div className="flex flex-col items-center gap-3">
-      <p>State: {state.phase}</p>
-      <p>Step: {state.step}</p>
-      <p>Time left: {state.secondsLeft}s</p>
-      <ActionField
-        phase={state.phase}
-        onStart={() => dispatch({ type: "START" })}
-        onNext={() => dispatch({ type: "NEXT" })}
-      />
-    </div>
+    <WordListProvider>
+      <div className="flex flex-col items-center gap-3 h-full">
+        <p>Time left: {state.secondsLeft}s</p>
+        <p>Step: {state.step}</p>
+        <WordList />
+        <ActionField
+          phase={state.phase}
+          onStart={() => dispatch({ type: "START" })}
+          onNext={() => dispatch({ type: "NEXT" })}
+        />
+      </div>
+    </WordListProvider>
   );
 };
 

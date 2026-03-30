@@ -1,4 +1,5 @@
 import { FC } from "react";
+import useWordList from "../../contexts/useWordListContext";
 
 export enum WordCardStatus {
   Selected = "selected",
@@ -17,7 +18,7 @@ const WordCard:FC<WordCardProps> = (props) => {
   const { word, status } = props;
   return (
     <div>
-      <p>WordCard</p>
+      <p className="text-xs">{word}</p>
     </div>
   );
 }
