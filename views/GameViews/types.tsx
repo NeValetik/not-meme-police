@@ -1,7 +1,6 @@
-import { ReactNode } from "react";
 import AliasView from "./AliasView";
 
-export const enum ClientGame {
+export enum ClientGame {
   Alias = "alias",
 }
 

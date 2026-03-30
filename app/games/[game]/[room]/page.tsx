@@ -1,7 +1,8 @@
-import { FC } from "react";
-import { getClientGameRoom } from "@/views/GameViews/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
+import { notFound } from "next/navigation";
+import { clientGameRooms } from "@/views/GameViews/types";
 
 interface RoomPageProps {
   params: {
@@ -10,18 +11,23 @@ interface RoomPageProps {
   };
 }
 
-const RoomPage:FC<RoomPageProps> = async (props) => {
-  const { game, ...restParams } = await props.params;
-  const ClientGameView = getClientGameRoom(game);
-  if (!ClientGameView) {
-    return <div>Game not found</div>;
+const RoomPage = async (props: RoomPageProps) => {
+  const { game, room } = await props.params;
+  const GameView = clientGameRooms[game as keyof typeof clientGameRooms];
+
+  if (!GameView) {
+    notFound();
   }
+
   return (
     <div>
       <Button asChild variant="outline">
-        <Link href={`/games`}>Alias</Link>
+        <Link href={`/games`}>
+          <ArrowLeftIcon size={16} />
+          <span>Back</span>
+        </Link>
       </Button>
-      <ClientGameView {...restParams} />
+      <GameView room={room} />
     </div>
   );
 }

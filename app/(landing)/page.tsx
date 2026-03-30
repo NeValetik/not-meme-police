@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { FC } from "react";
 import { Button } from "@/components/ui/button";
+import { FC } from "react";
 
-const HomePage:FC<{}> = () => {
+const HomePage:FC = () => {
   return (
     <div className="">
       <Button asChild variant="outline">
