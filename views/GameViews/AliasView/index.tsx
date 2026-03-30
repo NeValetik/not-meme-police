@@ -5,6 +5,7 @@ const AliasView:FC<{room: string}> = (props) => {
   return (
     <div>
       <p>Room: {room}</p>
+      
     </div>
   )
 }
