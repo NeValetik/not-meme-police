@@ -1,0 +1,12 @@
+{
+  "title": "Connect to game",
+  "description": "Enter room name and your name",
+  "roomPlaceholder": "Room name",
+  "namePlaceholder": "Name",
+  "roomRequired": "Enter room name",
+  "nameRequired": "Enter name",
+  "submit": "Join",
+  "submitting": "Connecting...",
+  "errorGeneric": "Could not connect. Try again.",
+  "errorCheck": "Could not connect. Check your data and try again."
+}

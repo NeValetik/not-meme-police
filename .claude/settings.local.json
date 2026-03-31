@@ -4,7 +4,21 @@
       "Bash(npx:*)",
       "Bash(find /e/not-meme-police/views/GameViews/AliasView -type f -name *.ts -o -name *.tsx -o -name *.json)",
       "Bash(find /e/not-meme-police/src -type f \\\\\\(-name *.ts -o -name *.tsx \\\\\\))",
-      "Bash(grep -r word /e/not-meme-police --include=*.ts --include=*.tsx --include=*.json --exclude-dir=node_modules --exclude-dir=.next)"
+      "Bash(grep -r word /e/not-meme-police --include=*.ts --include=*.tsx --include=*.json --exclude-dir=node_modules --exclude-dir=.next)",
+      "Bash(find /e/not-meme-police/utils /e/not-meme-police/lib /e/not-meme-police/components -type f -name *.ts -o -name *.tsx)",
+      "Bash(npm install:*)",
+      "Bash(cd:*)",
+      "Bash(cp app/globals.css \"app/[lang]/globals.css\")",
+      "Bash(cp app/favicon.ico \"app/[lang]/favicon.ico\")",
+      "Bash(cp \"app/\\(landing\\)/layout.tsx\" \"app/[lang]/\\(landing\\)/layout.tsx\")",
+      "Bash(cp \"app/\\(landing\\)/page.tsx\" \"app/[lang]/\\(landing\\)/page.tsx\")",
+      "Bash(cp app/games/layout.tsx \"app/[lang]/games/layout.tsx\")",
+      "Bash(cp app/games/page.tsx \"app/[lang]/games/page.tsx\")",
+      "Bash(cp \"app/games/[game]/[room]/layout.tsx\" \"app/[lang]/games/[game]/[room]/layout.tsx\")",
+      "Bash(cp \"app/games/[game]/[room]/page.tsx\" \"app/[lang]/games/[game]/[room]/page.tsx\")",
+      "Bash(ls \"app/\\(landing\\)/\")",
+      "Bash(rm -rf public/locale)",
+      "Bash(npm uninstall:*)"
     ]
   }
 }

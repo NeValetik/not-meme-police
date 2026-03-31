@@ -4,9 +4,11 @@ import { FC, useState } from "react";
 import { useParams } from "next/navigation";
 import ConnectDialog from "@/views/GamesPageView/components/ConnectDialog";
 import { toast } from "sonner";
+import { useTranslation } from "@/i18n/client";
 
 const GameLayout:FC<{children: React.ReactNode}> = ({ children }) => {
   const { game, room } = useParams();
+  const connect = useTranslation("connect");
 
   const [ connetOpen, setConnectOpen ] = useState(() => {
     if (typeof window === "undefined") {
@@ -17,7 +19,7 @@ const GameLayout:FC<{children: React.ReactNode}> = ({ children }) => {
 
   const handleSubmit = ({ name }: { name?: string }) => {
     if (!name) {
-      toast.error('Введите имя');
+      toast.error(connect.nameRequired);
       return;
     }
     localStorage.setItem('name', name || '');

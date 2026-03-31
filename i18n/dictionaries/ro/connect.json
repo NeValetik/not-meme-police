@@ -1,0 +1,12 @@
+{
+  "title": "Conectare la joc",
+  "description": "Introduceți numele camerei și numele dvs.",
+  "roomPlaceholder": "Numele camerei",
+  "namePlaceholder": "Nume",
+  "roomRequired": "Introduceți numele camerei",
+  "nameRequired": "Introduceți numele",
+  "submit": "Intră",
+  "submitting": "Se conectează...",
+  "errorGeneric": "Nu s-a putut conecta. Încercați din nou.",
+  "errorCheck": "Nu s-a putut conecta. Verificați datele și încercați din nou."
+}

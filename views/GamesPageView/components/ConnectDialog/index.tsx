@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "@/i18n/client";
 
 interface ConnectDialogProps {
   game: string;
@@ -20,6 +21,7 @@ interface ConnectDialogValues {
 
 const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpenChange, handleSubmit }) => {
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const connect = useTranslation("connect");
 
   const form = useForm<ConnectDialogValues>({
     defaultValues: {
@@ -39,10 +41,10 @@ const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpen
       });
 
       if (submitResult === false) {
-        setSubmitError("Не удалось подключиться. Проверьте данные и попробуйте снова.");
+        setSubmitError(connect.errorCheck);
       }
     } catch {
-      setSubmitError("Не удалось подключиться. Попробуйте снова.");
+      setSubmitError(connect.errorGeneric);
     }
   };
 
@@ -50,13 +52,13 @@ const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpen
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       {!onOpenChange && !isOpen && (
         <DialogTrigger asChild>
-          <Button className="flex-1" variant="ghost" color="secondary" size="sm">Войти</Button>
+          <Button className="flex-1" variant="ghost" color="secondary" size="sm">{connect.submit}</Button>
         </DialogTrigger>
       )}
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Подключение к игре</DialogTitle>
-          <DialogDescription>Введите название комнаты и имя</DialogDescription>
+          <DialogTitle>{connect.title}</DialogTitle>
+          <DialogDescription>{connect.description}</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form className="space-y-3" onSubmit={form.handleSubmit(onSubmit)}>
@@ -64,12 +66,12 @@ const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpen
               <FormField
                 control={form.control}
                 name="roomId"
-                rules={{ required: "Введите название комнаты" }}
+                rules={{ required: connect.roomRequired }}
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
                       <Input
-                        placeholder="Название комнаты"
+                        placeholder={connect.roomPlaceholder}
                         {...field}
                         onChange={(e) => {
                           setSubmitError(null);
@@ -85,12 +87,12 @@ const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpen
             <FormField
               control={form.control}
               name="name"
-              rules={{ required: "Введите имя" }}
+              rules={{ required: connect.nameRequired }}
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Имя"
+                      placeholder={connect.namePlaceholder}
                       {...field}
                       onChange={(e) => {
                         setSubmitError(null);
@@ -105,7 +107,7 @@ const ConnectDialog:FC<ConnectDialogProps> = ({ game, roomIdProp, isOpen, onOpen
             {submitError && <p className="text-sm text-destructive">{submitError}</p>}
             <DialogFooter>
               <Button variant="default" color="primary" size="sm" type="submit" disabled={form.formState.isSubmitting}>
-                {form.formState.isSubmitting ? "Подключение..." : "Войти"}
+                {form.formState.isSubmitting ? connect.submitting : connect.submit}
               </Button>
             </DialogFooter>
           </form>
